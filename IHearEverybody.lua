@@ -7,20 +7,20 @@ local soundDescriptions = {
 	["CHAT_MSG_BG_SYSTEM_ALLIANCE"] = "When an alliance action is sent to chat in BGs, e.g. assaulting a graveyard or capture point, or picking up a flag.",
 	["CHAT_MSG_BG_SYSTEM_HORDE"] = "When a horde action is sent to chat in BGs, e.g. assaulting a graveyard or capture point, or picking up a flag.",
 	["CHAT_MSG_BG_SYSTEM_NEUTRAL"] = "When a Battleground-event message that are displayed in a faction-neutral color by default is sent",
-	--["CHAT_MSG_BN"] = "Unknown. Possibly BattleNet messages.",
-	--["CHAT_MSG_BN_INLINE_TOAST_ALERT"] = "",
-	--["CHAT_MSG_BN_INLINE_TOAST_BROADCAST"] = "",
-	--["CHAT_MSG_BN_INLINE_TOAST_BROADCAST_INFORM"] = "",
-	--["CHAT_MSG_BN_INLINE_TOAST_CONVERSATION"] = "",
+	["CHAT_MSG_BN"] = "",										--Not currently implemented
+	["CHAT_MSG_BN_INLINE_TOAST_ALERT"] = "",					--Not currently implemented
+	["CHAT_MSG_BN_INLINE_TOAST_BROADCAST"] = "",				--Not currently implemented
+	["CHAT_MSG_BN_INLINE_TOAST_BROADCAST_INFORM"] = "",			--Not currently implemented
+	["CHAT_MSG_BN_INLINE_TOAST_CONVERSATION"] = "",				--Not currently implemented
 	["CHAT_MSG_BN_WHISPER"] = "",
 	["CHAT_MSG_BN_WHISPER_INFORM"] = "",
 	["CHAT_MSG_BN_WHISPER_PLAYER_OFFLINE"] = "",
 	["CHAT_MSG_CHANNEL"] = "When a channel message is sent",
 	["CHAT_MSG_CHANNEL_JOIN"] = "When somebody joins a channel you are in.",
 	["CHAT_MSG_CHANNEL_LEAVE"] = "When somebody leaves a channel you are in.",
-	--["CHAT_MSG_CHANNEL_LIST"] = "",
+	["CHAT_MSG_CHANNEL_LIST"] = "",								--Not currently implemented
 	["CHAT_MSG_CHANNEL_NOTICE"] = "When you enter or leave a chat channel, or a channel was recently throttled.",
-	["CHAT_MSG_CHANNEL_NOTICE_USER"] = "when something changes in the channel, such as a user being kicked or moderation being enabled",
+	["CHAT_MSG_CHANNEL_NOTICE_USER"] = "When something changes in the channel, such as a user being kicked or moderation being enabled",
 	["CHAT_MSG_COMBAT_FACTION_CHANGE"] = "When you gain or lose reputation with a faction.",
 	["CHAT_MSG_COMBAT_HONOR_GAIN"] = "When you gain honor, whether from an honorable kill or bonus honor earned.",
 	["CHAT_MSG_COMBAT_MISC_INFO"] = "When your equipment takes durability loss that is announced in chat.",
@@ -67,28 +67,29 @@ local soundDescriptions = {
 	["CHAT_MSG_YELL"] = "",
 }
 local soundDictionary = {
-	["CHAT_MSG_PARTY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,					--Party Members
-	["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,				--Party Leader
-	["CHAT_MSG_OFFICER"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg", MASTER,					--Guild Officer
-	["CHAT_MSG_GUILD"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg", MASTER,					--Guild Chat
-	["CHAT_MSG_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg", MASTER,				--In Game Whispers
-	["CHAT_MSG_BN_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg", MASTER,				--Battlenet Whispers
-    ["CHAT_MSG_RAID"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,						--Raid Members
-	["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,				--Raid Leader
-    ["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,			--Instance Chat
-	["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,		--Instance Leader
-	["CHAT_MSG_COMMUNITIES_CHANNEL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,		--Communities
+	["CHAT_MSG_PARTY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",					--Party Members
+	["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",				--Party Leader
+	["CHAT_MSG_OFFICER"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg",					--Guild Officer
+	["CHAT_MSG_GUILD"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg",					--Guild Chat
+	["CHAT_MSG_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg",				--In Game Whispers
+	["CHAT_MSG_BN_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg",				--Battle.net Whispers
+	["CHAT_MSG_RAID"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",						--Raid Members
+	["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",				--Raid Leader
+	["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",			--Instance Chat
+	["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",		--Instance Leader
+	["CHAT_MSG_COMMUNITIES_CHANNEL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",		--Communities
 	--FIXME remove these from default later
-	["CHAT_MSG_SAY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,
-	["CHAT_MSG_YELL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,
+	["CHAT_MSG_SAY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",
+	["CHAT_MSG_YELL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",
 }
 
+--Create the functions to retrieve which sound to play, and play it
 local sounds = {
 	play = function(soundFile)
 		PlaySoundFile(soundFile);
 	end,
-	getFromDictionary = function(soundType)
-		return soundDictionary[soundType];
+	getFromDictionary = function(messageType)
+		return soundDictionary[messageType];
 	end,
 }
 
@@ -108,9 +109,19 @@ messageHandler:RegisterEvent("CHAT_MSG_SAY")
 messageHandler:RegisterEvent("CHAT_MSG_YELL")
 messageHandler:SetScript("OnEvent", sounds.play(sounds.getFromDictionary(event)))
 
+--Create config UI, initialize it, and set default opening point, then hide it.
+local configUI = CreateFrame("Frame","CN_ConfigUI", UIParent,"BasicFrameTemplateWithInset, MovableTemplate")
+configUI:SetSize(500,800);
+configUI:SetPoint("CENTER",UIParent,"CENTER")
+configUI:Hide();
+configUI.title = configUI:CreateFontString(nil, "OVERLAY", "GameFontHighlight");
+configUI.title:SetPoint("LEFT", configUI.TitleBg, "LEFT",5,0);
+configUI.title:SetText("ChatNotifications Config UI");
 local function setSounds()
 
 end
 setSounds();
 
+--FIXME Remove these tests once testing is complete
+sounds.play(sounds.getFromDictionary("CHAT_MSG_SAY")) --Should play sound as soon as the addon loads.
 
