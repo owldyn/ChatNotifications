@@ -1,3 +1,71 @@
+local soundDescriptions = {
+	-- Descriptions attained and (usually) paraphrased from https://wow.gamepedia.com/Category:API_events/C_ChatInfo as of 6/20/2019.
+	["CHAT_MSG_ACHIEVEMENT"] = "When a player in your vicinity completes an achievement.",
+	["CHAT_MSG_ADDON"] = "When an addon sends a message not visible to the player that is NOT logged on Blizzard's servers (such as the feature in DBM that will check if other players are running the addon).",
+	["CHAT_MSG_ADDON_LOGGED"] = "When an addon sends a message not visible to the player that IS logged on Blizzard's servers (such as an RP addon sharing your characters bio)",
+	["CHAT_MSG_AFK"] = "When you receive an AFK auto response",
+	["CHAT_MSG_BG_SYSTEM_ALLIANCE"] = "When an alliance action is sent to chat in BGs, e.g. assaulting a graveyard or capture point, or picking up a flag.",
+	["CHAT_MSG_BG_SYSTEM_HORDE"] = "When a horde action is sent to chat in BGs, e.g. assaulting a graveyard or capture point, or picking up a flag.",
+	["CHAT_MSG_BG_SYSTEM_NEUTRAL"] = "When a Battleground-event message that are displayed in a faction-neutral color by default is sent",
+	--["CHAT_MSG_BN"] = "Unknown. Possibly BattleNet messages.",
+	--["CHAT_MSG_BN_INLINE_TOAST_ALERT"] = "",
+	--["CHAT_MSG_BN_INLINE_TOAST_BROADCAST"] = "",
+	--["CHAT_MSG_BN_INLINE_TOAST_BROADCAST_INFORM"] = "",
+	--["CHAT_MSG_BN_INLINE_TOAST_CONVERSATION"] = "",
+	["CHAT_MSG_BN_WHISPER"] = "",
+	["CHAT_MSG_BN_WHISPER_INFORM"] = "",
+	["CHAT_MSG_BN_WHISPER_PLAYER_OFFLINE"] = "",
+	["CHAT_MSG_CHANNEL"] = "When a channel message is sent",
+	["CHAT_MSG_CHANNEL_JOIN"] = "When somebody joins a channel you are in.",
+	["CHAT_MSG_CHANNEL_LEAVE"] = "When somebody leaves a channel you are in.",
+	--["CHAT_MSG_CHANNEL_LIST"] = "",
+	["CHAT_MSG_CHANNEL_NOTICE"] = "When you enter or leave a chat channel, or a channel was recently throttled.",
+	["CHAT_MSG_CHANNEL_NOTICE_USER"] = "when something changes in the channel, such as a user being kicked or moderation being enabled",
+	["CHAT_MSG_COMBAT_FACTION_CHANGE"] = "When you gain or lose reputation with a faction.",
+	["CHAT_MSG_COMBAT_HONOR_GAIN"] = "When you gain honor, whether from an honorable kill or bonus honor earned.",
+	["CHAT_MSG_COMBAT_MISC_INFO"] = "When your equipment takes durability loss that is announced in chat.",
+	["CHAT_MSG_COMBAT_XP_GAIN"] = "When you gain XP from a creature or a quest. (does not activate if you kill a creature and do not get XP from it)",
+	["CHAT_MSG_COMMUNITIES_CHANNEL"] = "When you receive a message in a Community. (needs verification)", --TODO needs verification
+	["CHAT_MSG_CURRENCY"] = "",
+	["CHAT_MSG_DND"] = "",
+	["CHAT_MSG_EMOTE"] = "",
+	["CHAT_MSG_FILTERED"] = "",
+	["CHAT_MSG_GUILD"] = "",
+	["CHAT_MSG_GUILD_ACHIEVEMENT"] = "",
+	["CHAT_MSG_GUILD_ITEM_LOOTED"] = "",
+	["CHAT_MSG_IGNORED"] = "",
+	["CHAT_MSG_INSTANCE_CHAT"] = "",
+	["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "",
+	["CHAT_MSG_LOOT"] = "",
+	["CHAT_MSG_MONEY"] = "",
+	["CHAT_MSG_MONSTER_EMOTE"] = "",
+	["CHAT_MSG_MONSTER_PARTY"] = "",
+	["CHAT_MSG_MONSTER_SAY"] = "",
+	["CHAT_MSG_MONSTER_WHISPER"] = "",
+	["CHAT_MSG_MONSTER_YELL"] = "",
+	["CHAT_MSG_OFFICER"] = "",
+	["CHAT_MSG_OPENING"] = "",
+	["CHAT_MSG_PARTY"] = "",
+	["CHAT_MSG_PARTY_LEADER"] = "",
+	["CHAT_MSG_PET_BATTLE_COMBAT_LOG"] = "",
+	["CHAT_MSG_PET_BATTLE_INFO"] = "",
+	["CHAT_MSG_PET_INFO"] = "",
+	["CHAT_MSG_RAID"] = "",
+	["CHAT_MSG_RAID_BOSS_EMOTE"] = "",
+	["CHAT_MSG_RAID_BOSS_WHISPER"] = "",
+	["CHAT_MSG_RAID_LEADER"] = "",
+	["CHAT_MSG_RAID_WARNING"] = "",
+	["CHAT_MSG_RESTRICTED"] = "",
+	["CHAT_MSG_SAY"] = "",
+	["CHAT_MSG_SKILL"] = "",
+	["CHAT_MSG_SYSTEM"] = "",
+	["CHAT_MSG_TARGETICONS"] = "",
+	["CHAT_MSG_TEXT_EMOTE"] = "",
+	["CHAT_MSG_TRADESKILLS"] = "",
+	["CHAT_MSG_WHISPER"] = "When a whisper is received from another player.",
+	["CHAT_MSG_WHISPER_INFORM"] = "",
+	["CHAT_MSG_YELL"] = "",
+}
 local soundDictionary = {
 	["CHAT_MSG_PARTY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,					--Party Members
 	["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,				--Party Leader
@@ -14,27 +82,35 @@ local soundDictionary = {
 	["CHAT_MSG_SAY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,
 	["CHAT_MSG_YELL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", MASTER,
 }
-local playSound = CreateFrame("Frame")
+
+local sounds = {
+	play = function(soundFile)
+		PlaySoundFile(soundFile);
+	end,
+	getFromDictionary = function(soundType)
+		return soundDictionary[soundType];
+	end,
+}
+
+local messageHandler = CreateFrame("Frame")
+messageHandler:RegisterEvent("CHAT_MSG_RAID_LEADER")
+messageHandler:RegisterEvent("CHAT_MSG_RAID")
+messageHandler:RegisterEvent("CHAT_MSG_PARTY")
+messageHandler:RegisterEvent("CHAT_MSG_WHISPER")
+messageHandler:RegisterEvent("CHAT_MSG_OFFICER")
+messageHandler:RegisterEvent("CHAT_MSG_GUILD")
+messageHandler:RegisterEvent("CHAT_MSG_PARTY_LEADER")
+messageHandler:RegisterEvent("CHAT_MSG_BN_WHISPER")
+messageHandler:RegisterEvent("CHAT_MSG_INSTANCE_CHAT")
+messageHandler:RegisterEvent("CHAT_MSG_INSTANCE_CHAT_LEADER")
+messageHandler:RegisterEvent("CHAT_MSG_COMMUNITIES_CHANNEL")
+messageHandler:RegisterEvent("CHAT_MSG_SAY")
+messageHandler:RegisterEvent("CHAT_MSG_YELL")
+messageHandler:SetScript("OnEvent", sounds.play(sounds.getFromDictionary(event)))
 
 local function setSounds()
-	playSound:RegisterEvent("CHAT_MSG_RAID_LEADER")
-	playSound:RegisterEvent("CHAT_MSG_RAID")
-	playSound:RegisterEvent("CHAT_MSG_PARTY")
-	playSound:RegisterEvent("CHAT_MSG_WHISPER")
-	playSound:RegisterEvent("CHAT_MSG_OFFICER")
-	playSound:RegisterEvent("CHAT_MSG_GUILD")
-	playSound:RegisterEvent("CHAT_MSG_PARTY_LEADER")
-	playSound:RegisterEvent("CHAT_MSG_BN_WHISPER")
-	playSound:RegisterEvent("CHAT_MSG_INSTANCE_CHAT")
-	playSound:RegisterEvent("CHAT_MSG_INSTANCE_CHAT_LEADER")
-	playSound:RegisterEvent("CHAT_MSG_COMMUNITIES_CHANNEL")
-	playSound:RegisterEvent("CHAT_MSG_SAY")
-	playSound:RegisterEvent("CHAT_MSG_YELL")
-	playSound:SetScript("OnEvent", function(event)
-		PlaySoundFile(soundDictionary[event])
-	end)
+
 end
 setSounds();
-PlaySoundFile("Interface\\AddOns\\IHearEverybody\\party.ogg");
 
 
