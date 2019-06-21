@@ -5,4 +5,4 @@
 ## Author: Owldyn
 ## DefaultState: Enabled
 
-IHearEverybody.lua
+Core.lua
