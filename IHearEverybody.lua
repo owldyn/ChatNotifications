@@ -78,18 +78,18 @@ local soundDictionary = {
 	["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",			--Instance Chat
 	["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",		--Instance Leader
 	["CHAT_MSG_COMMUNITIES_CHANNEL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",		--Communities
-	--FIXME remove these from default later
-	["CHAT_MSG_SAY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",
-	["CHAT_MSG_YELL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",
 }
 
 --Create the functions to retrieve which sound to play, and play it
 local sounds = {
-	play = function(soundFile)
+	play = function(self, soundFile)
 		PlaySoundFile(soundFile);
 	end,
-	getFromDictionary = function(messageType)
+	getFromDictionary = function(self, messageType)
 		return soundDictionary[messageType];
+	end,
+	playFromDictionary = function(self, messageType)
+		PlaySoundFile(soundDictionary[messageType]);
 	end,
 }
 
@@ -106,22 +106,31 @@ messageHandler:RegisterEvent("CHAT_MSG_INSTANCE_CHAT")
 messageHandler:RegisterEvent("CHAT_MSG_INSTANCE_CHAT_LEADER")
 messageHandler:RegisterEvent("CHAT_MSG_COMMUNITIES_CHANNEL")
 messageHandler:RegisterEvent("CHAT_MSG_SAY")
+messageHandler:RegisterEvent("CHAT_MSG_SYSTEM")
 messageHandler:RegisterEvent("CHAT_MSG_YELL")
-messageHandler:SetScript("OnEvent", sounds.play(sounds.getFromDictionary(event)))
+messageHandler:RegisterEvent("CHAT_MSG_COMBAT_XP_GAIN")
+messageHandler:SetScript("OnEvent", sounds.playFromDictionary)
 
---Create config UI, initialize it, and set default opening point, then hide it.
-local configUI = CreateFrame("Frame","CN_ConfigUI", UIParent,"BasicFrameTemplateWithInset, MovableTemplate")
-configUI:SetSize(500,800);
-configUI:SetPoint("CENTER",UIParent,"CENTER")
-configUI:Hide();
-configUI.title = configUI:CreateFontString(nil, "OVERLAY", "GameFontHighlight");
-configUI.title:SetPoint("LEFT", configUI.TitleBg, "LEFT",5,0);
-configUI.title:SetText("ChatNotifications Config UI");
+
+
+--Create config UI.
+local configUI = {}
+configUI.panel = CreateFrame("Frame","CN_ConfigUI", UIParent);
+configUI.panel.name = "Chat Notifications";
+InterfaceOptions_AddCategory(configUI.panel);
+
+--Add Buttons
+
+--Save Button
+configUI.panel.saveButton = CreateFrame("Button", nil, configUI.panel, "GameMenuButtonTemplate");
+configUI.panel.saveButton:SetPoint("CENTER", configUI.panel, "TOPRIGHT", -70, -20);
+configUI.panel.saveButton:SetSize(140,40);
+configUI.panel.saveButton:SetText("Save");
+configUI.panel.saveButton:SetNormalFontObject("GameFontNormalLarge");
+configUI.panel.saveButton:SetHighlightFontObject("GameFontHighlightLarge");
+
 local function setSounds()
 
 end
 setSounds();
-
---FIXME Remove these tests once testing is complete
-sounds.play(sounds.getFromDictionary("CHAT_MSG_SAY")) --Should play sound as soon as the addon loads.
 
