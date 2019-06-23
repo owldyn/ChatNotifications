@@ -6,3 +6,5 @@
 ## DefaultState: Enabled
 
 Core.lua
+Config.lua
+SoundDescriptions.lua
