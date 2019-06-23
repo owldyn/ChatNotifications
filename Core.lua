@@ -1,18 +1,3 @@
---Initialize Sound Dictionary
-local soundDictionary = {
-	["CHAT_MSG_PARTY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",					--Party Members
-	["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",				--Party Leader
-	["CHAT_MSG_OFFICER"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg",					--Guild Officer
-	["CHAT_MSG_GUILD"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg",					--Guild Chat
-	["CHAT_MSG_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg",				--In Game Whispers
-	["CHAT_MSG_BN_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg",				--Battle.net Whispers
-	["CHAT_MSG_RAID"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",						--Raid Members
-	["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",				--Raid Leader
-	["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",			--Instance Chat
-	["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",		--Instance Leader
-	["CHAT_MSG_COMMUNITIES_CHANNEL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",		--Communities
-}
-
 --Create the functions to retrieve which sound to play, and play it
 local sounds = {
 	play = function(self, soundFile)
@@ -21,11 +6,11 @@ local sounds = {
 		end
 	end,
 	getFromDictionary = function(self, messageType)
-		return soundDictionary[messageType];
+		return SavedDictionary[messageType];
 	end,
 	playFromDictionary = function(self, messageType)
 		if not messageType == nil then
-			PlaySoundFile(soundDictionary[messageType]);
+			PlaySoundFile(SavedDictionary[messageType]);
 		end
 	end,
 }
