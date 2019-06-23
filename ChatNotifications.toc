@@ -1,9 +1,10 @@
 ## Interface: 80100
-## Title: IHearEverybody
+## Title: ChatNotifications
 ## Notes: Plays sounds when you receive messages.
 ## Version: 1.0
 ## Author: Owldyn
 ## DefaultState: Enabled
+## SavedVariables SavedDictionary
 
 Core.lua
 Config.lua
