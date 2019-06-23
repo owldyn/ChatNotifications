@@ -1,5 +1,6 @@
 local soundDescriptions = {
-	-- Descriptions attained and (usually) paraphrased from https://wow.gamepedia.com/Category:API_events/C_ChatInfo as of 6/20/2019.
+	--Descriptions attained and (usually) paraphrased from https://wow.gamepedia.com/Category:API_events/C_ChatInfo as of 6/20/2019.
+	--Message types not implemented are not implemented either because I see no reason for them, or because it's unclear/unknown what exactly they are for.
 	["CHAT_MSG_ACHIEVEMENT"] = "When a player in your vicinity completes an achievement.",
 	["CHAT_MSG_ADDON"] = "When an addon sends a message not visible to the player that is NOT logged on Blizzard's servers (such as the feature in DBM that will check if other players are running the addon).",
 	["CHAT_MSG_ADDON_LOGGED"] = "When an addon sends a message not visible to the player that IS logged on Blizzard's servers (such as an RP addon sharing your characters bio)",
@@ -92,6 +93,14 @@ local sounds = {
 		PlaySoundFile(soundDictionary[messageType]);
 	end,
 }
+--Function to set the sounds from settings
+local function setSounds()
+	--FIXME set this up
+end
+--Function to save the settings to SavedVariables
+local function saveSettings()
+	--FIXME set this up
+end
 
 local messageHandler = CreateFrame("Frame")
 messageHandler:RegisterEvent("CHAT_MSG_RAID_LEADER")
@@ -129,8 +138,6 @@ configUI.panel.saveButton:SetText("Save");
 configUI.panel.saveButton:SetNormalFontObject("GameFontNormalLarge");
 configUI.panel.saveButton:SetHighlightFontObject("GameFontHighlightLarge");
 
-local function setSounds()
 
-end
 setSounds();
 
