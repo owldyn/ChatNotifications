@@ -11,7 +11,41 @@ function SlashCmdList.CHATNOTIFICATIONSCONFIG(msg)
     print("test");
 end
 
---Add Buttons
+--Set up functions to load from SavedVariables
+configUI.eventHandler = CreateFrame("Frame","CN_ConfigUI_EventHandler", UIParent);
+function configUI.eventHandler:OnEvent(event, addon)
+    if ((event == "ADDON_LOADED") and (addon == "ChatNotifications")) then
+        configUI.eventHandler.events.addonLoad();
+    elseif (event == "PLAYER_LOGOUT") then
+        configUI.eventHandler.events.playerLogout();
+    end
+end
+configUI.eventHandler.events = {
+    addonLoad = function()
+        if (ChatNotificationsSavedDictionary == nil) then --If this is the first time this addon has been loaded then set the default settings.
+            ChatNotificationsSavedDictionary = {
+                ["CHAT_MSG_PARTY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", --Party Members
+                ["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", --Party Leader
+                ["CHAT_MSG_OFFICER"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg", --Guild Officer
+                ["CHAT_MSG_GUILD"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg", --Guild Chat
+                ["CHAT_MSG_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg", --In Game Whispers
+                ["CHAT_MSG_BN_WHISPER"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg", --Battle.net Whispers
+                ["CHAT_MSG_RAID"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", --Raid Members
+                ["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\IHearEverybody\\woopwoop.ogg", --Raid Leader
+                ["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", --Instance Chat
+                ["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", --Instance Leader
+                --["CHAT_MSG_COMMUNITIES_CHANNEL"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",		--Communities
+            }
+        end
+
+    end,
+    playerLogout = function()
+
+    end,
+}
+configUI.eventHandler:SetScript("OnEvent", configUI.eventHandler.OnEvent);
+
+--Add panel features
 --Save Button
 configUI.panel.saveButton = CreateFrame("Button", "CN_Config_SaveButton", configUI.panel, "GameMenuButtonTemplate");
 configUI.panel.saveButton:SetPoint("CENTER", configUI.panel, "BOTTOMRIGHT", -40, 15);
