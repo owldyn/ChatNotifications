@@ -7,5 +7,6 @@
 ## SavedVariables ChatNotificationsSavedDictionary
 
 Core.lua
+ConfigUI.xml
 Config.lua
 SoundDescriptions.lua
