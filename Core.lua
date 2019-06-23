@@ -1,3 +1,4 @@
+--Initialize Sound Dictionary
 local soundDictionary = {
 	["CHAT_MSG_PARTY"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",					--Party Members
 	["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",				--Party Leader
@@ -15,13 +16,17 @@ local soundDictionary = {
 --Create the functions to retrieve which sound to play, and play it
 local sounds = {
 	play = function(self, soundFile)
-		PlaySoundFile(soundFile);
+		if not soundFile == nil then
+			PlaySoundFile(soundFile);
+		end
 	end,
 	getFromDictionary = function(self, messageType)
 		return soundDictionary[messageType];
 	end,
 	playFromDictionary = function(self, messageType)
-		PlaySoundFile(soundDictionary[messageType]);
+		if not messageType == nil then
+			PlaySoundFile(soundDictionary[messageType]);
+		end
 	end,
 }
 --Function to set the sounds from settings
@@ -52,21 +57,6 @@ messageHandler:RegisterEvent("CHAT_MSG_COMBAT_XP_GAIN")
 messageHandler:SetScript("OnEvent", sounds.playFromDictionary)
 
 
-
---Create config UI within Blizzard's addon config panel.
-local configUI = {}
-configUI.panel = CreateFrame("Frame","CN_ConfigUI", UIParent);
-configUI.panel.name = "Chat Notifications";
-InterfaceOptions_AddCategory(configUI.panel);
-
---Add Buttons
---Save Button
-configUI.panel.saveButton = CreateFrame("Button", nil, configUI.panel, "GameMenuButtonTemplate");
-configUI.panel.saveButton:SetPoint("CENTER", configUI.panel, "TOPRIGHT", -70, -20);
-configUI.panel.saveButton:SetSize(140,40);
-configUI.panel.saveButton:SetText("Save");
-configUI.panel.saveButton:SetNormalFontObject("GameFontNormalLarge");
-configUI.panel.saveButton:SetHighlightFontObject("GameFontHighlightLarge");
 
 
 setSounds();
