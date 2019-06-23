@@ -6,11 +6,11 @@ local sounds = {
 		end
 	end,
 	getFromDictionary = function(self, messageType)
-		return SavedDictionary[messageType];
+		return ChatNotificationsSavedDictionary[messageType];
 	end,
 	playFromDictionary = function(self, messageType)
 		if not messageType == nil then
-			PlaySoundFile(SavedDictionary[messageType]);
+			PlaySoundFile(ChatNotificationsSavedDictionary[messageType]);
 		end
 	end,
 }

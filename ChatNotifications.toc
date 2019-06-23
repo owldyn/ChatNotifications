@@ -4,7 +4,7 @@
 ## Version: 1.0
 ## Author: Owldyn
 ## DefaultState: Enabled
-## SavedVariables SavedDictionary
+## SavedVariables ChatNotificationsSavedDictionary
 
 Core.lua
 Config.lua
