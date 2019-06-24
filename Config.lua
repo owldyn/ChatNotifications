@@ -84,6 +84,16 @@ local sounds = {
         end
     end,
 }
+--Set up the dictionary to figure out which sound is used for which option
+local soundDropDownDictionary = {
+    ["Disabled"] = nil,
+    ["Guild"] = "Interface\\AddOns\\IHearEverybody\\guild.ogg",
+    ["Party"] = "Interface\\AddOns\\IHearEverybody\\party.ogg",
+    ["Wheep"] = "Interface\\AddOns\\IHearEverybody\\wheep.ogg",
+    ["Whisper"] = "Interface\\AddOns\\IHearEverybody\\whisper.ogg",
+    ["Woopwoop"] = "Interface\\AddOns\\IHearEverybody\\woopwoop.ogg",
+
+}
 --Create config UI within Blizzard's addon config panel.
 local configUI = {}
 configUI.panel = CreateFrame("Frame","CN_ConfigUI", UIParent);
@@ -100,13 +110,14 @@ function SlashCmdList.CHATNOTIFICATIONSCONFIG(msg)
 end
 
 --Set up functions to load from SavedVariables
-local function setSettingDropdownText(selected)
+local function soundDropdownText(selected)
     if not (ChatNotificationsSavedDictionary[selected] == nil) then
         return ChatNotificationsSavedDictionary[selected];
     else
         return "Disabled";
     end
 end
+
 function configUI.eventHandler:OnEvent(event, addon)
     if ((event == "ADDON_LOADED") and (addon == "ChatNotifications")) then
         configUI.eventHandler.events.addonLoad();
@@ -114,6 +125,7 @@ function configUI.eventHandler:OnEvent(event, addon)
         configUI.eventHandler.events.playerLogout();
     end
 end
+
 configUI.eventHandler.events = {
     addonLoad = function()
         if (ChatNotificationsSavedDictionary == nil) then --If this is the first time this addon has been loaded then set the default settings.
@@ -130,10 +142,10 @@ configUI.eventHandler.events = {
                 ["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", --Instance Chat
                 ["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\IHearEverybody\\party.ogg", --Instance Leader
             }
-            configUI.panel.selected.DropDownButton.Text:SetText(setSettingDropdownText(configUI.panel.selected.Text:GetText())); --fixme
+            configUI.panel.selected.DropDownButton.Text:SetText(soundDropdownText(configUI.panel.selected.Text:GetText()));
         else
             print("notnil")
-            configUI.panel.selected.DropDownButton.Text:SetText(setSettingDropdownText(configUI.panel.selected.Text:GetText())); --fixme
+            configUI.panel.selected.DropDownButton.Text:SetText(soundDropdownText(configUI.panel.selected.Text:GetText()));
         end
 
     end,
@@ -141,33 +153,39 @@ configUI.eventHandler.events = {
 
     end,
 }
-
 configUI.eventHandler:SetScript("OnEvent", configUI.eventHandler.OnEvent);
 
---Add panel features
---Save Button
-configUI.panel.saveButton = CreateFrame("Button", "CN_Config_SaveButton", configUI.panel, "GameMenuButtonTemplate");
-configUI.panel.saveButton:SetPoint("CENTER", configUI.panel, "BOTTOMRIGHT", -40, 15);
-configUI.panel.saveButton:SetSize(70,20);
-configUI.panel.saveButton:SetText("Save");
-configUI.panel.saveButton:SetNormalFontObject("GameFontNormal");
-configUI.panel.saveButton:SetHighlightFontObject("GameFontHighlight");
 
---Message Type Dropdowns
 --Function to use when an option is selected, to change what is being displayed
 local function changeSettings(selected)
-    print(selected.value); --FIXME
+    print(selected.value); --TODO, actually test this in game
+    --Set the message type label
+        configUI.panel.selected.Text:SetText(selected.value);
+    --Set the sound dropbox
+    local type;
+    local soundFile = sounds.getFromDictionary(selected.value)
+    if not (soundFile == nil) then
+        for text, file in pairs(soundDropDownDictionary) do
+            if (selected.value == file) then
+                type = text;
+            end
+        end
+    else
+        type = "Disabled";
+    end
+    configUI.panel.selected.DropDownButton.Text:SetText(soundDropdownText(type));
 end
 local function changeSound(selected)
-    print(selected.value); --FIXME
+    configUI.panel.selected.DropDownButton.Text:SetText(selected.text)
 end
 --Function to check which is currently selected
 local function checkedTest(self)
     return (self.value == configUI.panel.selected.Text:GetText());
 end
 local function checkedTestSound(self)
-    return (self.value == nil);--FIXME
+    return (self.value == configUI.panel.selected.DropDownButton.Text:GetText());
 end
+
 --Data to populate dropdowns
 local dropdownData = {
     ["NormalMessages"] = {
@@ -259,11 +277,10 @@ local configUIDropDownOnClick = {
 }
 
 
-
 local function previewSound_OnClick()
-
-    local selected = nil; -- FIXME
-    local soundFile = dropdownData.Sounds[2].value;
+    local selected = configUI.panel.selected.DropDownButton.Text:GetText();
+    local soundFile = soundDropDownDictionary[selected];
+    sounds.play(soundFile);
 end
 local function getDescriptionText(selected)
     local output = CN_soundDescriptions[selected];
@@ -273,6 +290,29 @@ local function getDescriptionText(selected)
         return "Error!"
     end
 end
+local function saveButton_OnClick()
+    --TODO check to make sure this works
+    local message = configUI.panel.selected.Text:GetText();
+    local sound = configUI.panel.selected.DropDownButton.Text:GetText();
+    if (sound == "Disabled") then
+        if not (ChatNotificationsSavedDictionary[message] == nil) then
+            ChatNotificationsSavedDictionary.remove(message);
+        end
+    else
+        ChatNotificationsSavedDictionary[message] = soundDropDownDictionary[sound];
+    end
+end
+
+--Add panel features
+--Save Button
+configUI.panel.saveButton = CreateFrame("Button", "CN_Config_SaveButton", configUI.panel, "GameMenuButtonTemplate");
+configUI.panel.saveButton:SetPoint("CENTER", configUI.panel, "BOTTOMRIGHT", -40, 15);
+configUI.panel.saveButton:SetSize(70,20);
+configUI.panel.saveButton:SetText("Save");
+configUI.panel.saveButton:SetNormalFontObject("GameFontNormal");
+configUI.panel.saveButton:SetHighlightFontObject("GameFontHighlight");
+configUI.panel.saveButton:SetScript("OnClick", saveButton_OnClick);
+--Message Type Dropdowns
 --NormalDropDown
 configUI.panel.normalDropDown = CreateFrame("Frame", "CN_Config_NormalDropdown", configUI.panel, "UIDropDownMenuTemplate")
 configUI.panel.normalDropDownButton = CreateFrame("Button", "CN_Config_NormalDropdown", configUI.panel, "UIDropDownMenuTemplate")
@@ -283,8 +323,6 @@ configUI.panel.normalDropDownButton.initialize = configUIDropDownOnClick.normal;
 configUI.panel.normalDropDownButton.Text = configUI.panel.normalDropDownButton:CreateFontString(configUI.panel.normalDropDownButton.Text, "OVERLAY", "GameFontNormal");
 configUI.panel.normalDropDownButton.Text:SetText("Normal Chat");
 configUI.panel.normalDropDownButton.Text:SetPoint("TOP", configUI.panel, "TOPLEFT", 50, -23);
-
-
 
 --SystemDropDown
 configUI.panel.systemDropDown = CreateFrame("Frame", "CN_Config_SystemDropDown", configUI.panel, "UIDropDownMenuTemplate")
@@ -343,7 +381,6 @@ configUI.panel.selected.DropDownButton:SetSize(140,25);
 configUI.panel.selected.DropDownButton.initialize = configUIDropDownOnClick.setting;
 --Setting Text
 configUI.panel.selected.DropDownButton.Text = configUI.panel.selected.DropDownButton:CreateFontString(configUI.panel.selected.DropDownButton.Text, "OVERLAY", "GameFontNormal");
---configUI.panel.selected.DropDownButton.Text:SetText(setSettingDropdownText(configUI.panel.selected.Text:GetText())); --fixme
 configUI.panel.selected.DropDownButton.Text:SetPoint("CENTER", configUI.panel.selected.DropDownButton, "CENTER", 0, 0);
 --Preview Sound button
 configUI.panel.selected.previewButton = CreateFrame("Button", "CN_Config_selectedPreviewButton", configUI.panel, "GameMenuButtonTemplate");
