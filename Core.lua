@@ -258,7 +258,7 @@ configUI.eventHandler.events = {
                 ["CHAT_MSG_WHISPER"] = "Interface\\AddOns\\ChatNotifications\\whisper.ogg", --In Game Whispers
                 ["CHAT_MSG_BN_WHISPER"] = "Interface\\AddOns\\ChatNotifications\\whisper.ogg", --Battle.net Whispers
                 ["CHAT_MSG_RAID"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Raid Members
-                ["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\ChatNotifications\\woopwoop.ogg", --Raid Leader
+                ["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Raid Leader
                 ["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Instance Chat
                 ["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Instance Leader
             }
