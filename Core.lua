@@ -118,15 +118,6 @@ function SlashCmdList.CHATNOTIFICATIONSCONFIG(msg)
     InterfaceOptionsFrame_OpenToCategory("Chat Notifications")
 end
 
---Set up functions to load from SavedVariables
-local function soundDropdownText(selected)
-    if not (ChatNotificationsSavedDictionary[selected] == nil) then
-        return ChatNotificationsSavedDictionary[selected];
-    else
-        return "Disabled";
-    end
-end
-
 function configUI.eventHandler:OnEvent(event, addon)
     if ((event == "ADDON_LOADED") and (addon == "ChatNotifications")) then
         configUI.eventHandler.events.addonLoad();
@@ -389,7 +380,7 @@ configUI.panel.selected.Text:SetNormalFontObject("GameFontNormal");
 
 --Description of what selected option does
 configUI.panel.selected.description = configUI.panel.selected:CreateFontString(configUI.panel.selected.description, "OVERLAY","GameFontNormal");
-configUI.panel.selected.description:SetPoint("BOTTOM", configUI.panel.selected.Text, "BOTTOM", 205, -50);
+configUI.panel.selected.description:SetPoint("TOP", configUI.panel.saveButton, "TOP", 0, 50);
 configUI.panel.selected.description:SetSize(600,50);
 configUI.panel.selected.description:SetText(getDescriptionText(configUI.panel.selected.Text:GetText()))
 
