@@ -7,4 +7,3 @@
 ## SavedVariables: ChatNotificationsSavedDictionary
 
 Core.lua
-Config.lua
