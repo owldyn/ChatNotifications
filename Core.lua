@@ -155,7 +155,6 @@ end
 local function changeSound(self)
     local type;
     local soundFile = self.value;
-    print(soundFile);
     if not(soundFile == "Disabled" or soundFile == nil) then
         for text, file in pairs(soundDropDownDictionary) do
             if (soundFile == file) then
