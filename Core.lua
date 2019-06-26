@@ -253,7 +253,7 @@ local dropdownData = {
 configUI.eventHandler.events = {
     addonLoad = function()
         if (ChatNotificationsSavedDictionary == nil) then --If this is the first time this addon has been loaded then set the default settings.
-            print("Chat Notifications: I see this is the first time you\'ve ran this addon. Loading default settings.");
+            print("Chat Notifications: I see this is the first time you\'ve ran this addon. Loading default settings. You can type /chatnc to change them.");
             ChatNotificationsSavedDictionary = {
                 ["CHAT_MSG_PARTY"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Party Members
                 ["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Party Leader
