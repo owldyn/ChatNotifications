@@ -125,7 +125,9 @@ function configUI.eventHandler:OnEvent(event, addon)
         configUI.eventHandler.events.playerLogout();
     end
 end
+local ChatNotifications_messageHandler = {};
 local function reloadSoundEvents()
+    wipe(ChatNotifications_messageHandler);
     ChatNotifications_messageHandler = CreateFrame("Frame");
     for msgType, file in pairs(ChatNotificationsSavedDictionary) do
         ChatNotifications_messageHandler:RegisterEvent(msgType);
