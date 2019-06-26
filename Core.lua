@@ -80,7 +80,10 @@ local sounds = {
     end,
     playFromDictionary = function(self, messageType)
         if not (messageType == nil) then
-            PlaySoundFile(ChatNotificationsSavedDictionary[messageType]);
+            local soundFile = ChatNotificationsSavedDictionary[messageType];
+            if not (soundFile == nil) then
+                PlaySoundFile(soundFile);
+            end
         end
     end,
 }
