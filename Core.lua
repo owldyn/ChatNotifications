@@ -266,7 +266,7 @@ configUI.eventHandler.events = {
                 ["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Instance Chat
                 ["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Instance Leader
             }
-
+            changeSettings(dropdownData.NormalMessages[1]);
             reloadSoundEvents();
         else
             --configUI.panel.selected.DropDownButton.Text:SetText(soundDropdownText(configUI.panel.selected.Text:GetText()));
