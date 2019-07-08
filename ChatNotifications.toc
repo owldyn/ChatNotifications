@@ -1,4 +1,4 @@
-## Interface: 80100
+## Interface: 80200
 ## Title: ChatNotifications
 ## Notes: Plays sounds when you receive messages.
 ## Version: 1.0
