@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="186898c2-a84f-4ab9-84ac-f3d021c12662" name="Default Changelist" comment="" />
+    <list id="1c70e52d-4ece-4ec4-a2f9-9524c07340e9" name="Revert &quot;Migrate sound dictionary to its own file&quot;" comment="Revert &quot;Migrate sound dictionary to its own file&quot;&#10;&#10;This reverts commit a3686eb0" />
+    <list id="fb1e8b30-d6d0-41ef-acec-2f5e77edd74c" name="Revert: Remove default SoundDictionary, as it is moving to the config file. Changed all references to the sound dictionary to SavedDictionary." comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pkgmeta.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/Games/WoWAddon/WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/widgets/UIObject/ParentedObject/Region/VisibleRegion/Frame.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5542">
+              <caret line="326" column="16" selection-start-line="326" selection-start-column="16" selection-end-line="326" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/Games/WoWAddon/WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/widgets/UIObject/ParentedObject/Region.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/Games/WoWAddon/WoW API SDK/BlizzardInterfaceCode/Interface/FrameXML/EasyMenu.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/Games/WoWAddon/WoW API SDK/BlizzardInterfaceCode/Interface/FrameXML/UIDropDownMenu.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1003">
+              <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/Games/WoWAddon/WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/wow-api.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214438">
+              <caret line="12614" column="9" selection-start-line="12614" selection-start-column="9" selection-end-line="12614" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/Games/WoWAddon/WoW API SDK/BlizzardInterfaceCode/Interface/GlueXML/GlueDropDownMenu.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9979">
+              <caret line="587" column="31" selection-start-line="587" selection-start-column="4" selection-end-line="587" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ChatNotifications.toc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="NewLua" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>LiteralName = &quot;CHAT_MSG</find>
+      <find>CHAT_MSG</find>
+      <find>CHAT_MSG_CHANNEL</find>
+      <find>LiteralName = &quot;CHAt_MSG</find>
+      <find>xp</find>
+      <find>BasicFrameTemplateWithInset</find>
+      <find>Movable</find>
+      <find>mov</find>
+      <find>configUI.panel</find>
+      <find>MyDropDown</find>
+      <find>ConfigUI</find>
+      <find>onevent</find>
+      <find>fixmepls</find>
+      <find>normalDropDown</find>
+      <find>normalDropDownButton</find>
+      <find>ChatNotifications_ConfigUINormalMenuButton_OnClick</find>
+      <find>checkedTest.npc</find>
+      <find>event</find>
+      <find>soundDictions</find>
+      <find>fixme</find>
+      <find>todo</find>
+      <find>print(</find>
+      <find>IHearEverybody</find>
+      <find>preview</find>
+      <find>for</find>
+      <find>savebutt</find>
+      <find>getDescrip</find>
+      <find>getDescription</find>
+      <find>getdesc</find>
+      <find>print</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>IHearEverybody</replace>
+      <replace>CHAT_MSG_YELL</replace>
+      <replace>configUI.eventHandler</replace>
+      <replace>ConfigUINormal</replace>
+      <replace>fixmeplsnpc</replace>
+      <replace>NPCDropDown</replace>
+      <replace>ChatNotifications_ConfigUI</replace>
+      <replace>checkedTest.system</replace>
+      <replace>checkedTest</replace>
+      <replace>selected.previewButton</replace>
+      <replace>ChatNotifications</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>Z:\Games\WoWAddon\WoW API SDK\BlizzardInterfaceCode</dir>
+      <dir>Z:\Games\WoWAddon\WoW API SDK\IntelliJ-IDEA-Lua-IDE-WoW-API</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/IHearEverybody.lua" />
+        <option value="$PROJECT_DIR$/IHearEverybody.toc" />
+        <option value="$PROJECT_DIR$/ConfigUI.xml" />
+        <option value="$PROJECT_DIR$/SoundDescriptions.lua" />
+        <option value="$PROJECT_DIR$/Config.lua" />
+        <option value="$PROJECT_DIR$/pkgmeta.yaml" />
+        <option value="$PROJECT_DIR$/Core.lua" />
+        <option value="$PROJECT_DIR$/ChatNotifications.toc" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="186" />
+    <option name="y" value="112" />
+    <option name="width" value="1120" />
+    <option name="height" value="678" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ChatNotifications" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChatNotifications" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChatNotifications" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15429688" />
+    <property name="project.structure.side.proportion" value="0.2482679" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="186898c2-a84f-4ab9-84ac-f3d021c12662" name="Default Changelist" comment="" />
+      <changelist id="fb1e8b30-d6d0-41ef-acec-2f5e77edd74c" name="Revert: Remove default SoundDictionary, as it is moving to the config file. Changed all references to the sound dictionary to SavedDictionary." comment="" />
+      <created>1560998960854</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560998960854</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1561007664661</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561007664661</updated>
+    </task>
+    <task id="LOCAL-00002" summary="replaced one sound with a better one">
+      <created>1561087999079</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1561087999079</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Gave better name">
+      <created>1561088010721</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561088010721</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed sound playing functions, cleaned up some fixme's, and changed barebones config ui to integrate with WoW's built in">
+      <created>1561088637897</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561088637897</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Renamed to ChatNotifications">
+      <created>1561089008553</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561089008553</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Clean up code a little bit">
+      <created>1561253775833</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561253775833</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Migrate sound dictionary to its own file">
+      <created>1561254048927</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1561254048927</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Moved configUI to its own file">
+      <created>1561255524480</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1561255524480</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Migrate config code to its own file, added error checking in the sound playing functions">
+      <created>1561255540812</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1561255540812</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add new files added to the .toc">
+      <created>1561255863836</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1561255863836</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add slash command, add framework for saving settings. Fix title">
+      <created>1561256695810</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1561256695810</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Remove default SoundDictionary, as it is moving to the config file. Changed all references to the sound dictionary to SavedDictionary.">
+      <created>1561257537330</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1561257537330</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Remove default SoundDictionary, as it is moving to the config file. Changed all references to the sound dictionary to SavedDictionary.">
+      <created>1561257634967</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1561257634967</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Change SavedDictionary to ChatNotificationsSavedDictionary for better addon compatibility">
+      <created>1561258442764</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1561258442764</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add ConfigUI XML file">
+      <created>1561263419623</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1561263419623</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Removed XML">
+      <created>1561278353212</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1561278353212</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added beginnings of configUI">
+      <created>1561278370447</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1561278370447</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added beginnings of configUI">
+      <created>1561278414826</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561278414826</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fix saved variable line">
+      <created>1561320076426</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1561320076427</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Removed SoundDescriptions as a separate file">
+      <created>1561321120003</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1561321120003</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added more elements to configUI. Migrated descriptions back to config gfile">
+      <created>1561323556578</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1561323556578</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Finished with configUI. Needs bug testing.">
+      <created>1561401060592</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1561401060592</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Finished all features. Removed core.lua, renamed config.lua to core.lua as it was easier to handle everything in one file.">
+      <created>1561439776345</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1561439776345</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Fix placement of description text. Removed unused function.">
+      <created>1561440015666</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1561440015666</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Changed default audio for raid leader back to party">
+      <created>1561440348755</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1561440348755</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Changed sounds as other sounds were taken from another addon">
+      <created>1561442704351</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1561442704352</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Changed sounds as other sounds were taken from another addon">
+      <created>1561443201184</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1561443201184</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Remove print statement left over from debugging">
+      <created>1561510336307</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1561510336307</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Make the message handler a local variable, and use the WoW API wipe to make sure it cleans it.">
+      <created>1561510969381</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1561510969381</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Fix a lua error when the user changes a message type to make a sound, then changes it back to disabled.">
+      <created>1561511005638</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1561511005638</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Updated original init message to direct user to how to change settings">
+      <created>1561511430716</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1561511430716</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Add the pkgmeta to allow automatic packaging">
+      <created>1562005185496</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1562005185496</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fixed initial load to actually correctly initialize the settings menu.">
+      <created>1562005310753</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1562005310753</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Remove enable-nolib-creation line as it was not necessary.">
+      <created>1562052952108</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1562052952108</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Fix some typos in the descriptions">
+      <created>1562610727303</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1562610727303</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fix interface version">
+      <created>1562611053749</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1562611053749</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1508" height="918" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09185083" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32940185" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32994455" />
+      <window_info anchor="bottom" id="LuaCheck" order="7" weight="0.32940185" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.31592357" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32809612" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add slash command, add framework for saving settings. Fix title" />
+    <MESSAGE value="Remove default SoundDictionary, as it is moving to the config file" />
+    <MESSAGE value="Change SavedDictionary to ChatNotificationsSavedDictionary for better addon compatibility" />
+    <MESSAGE value="Add ConfigUI XML file" />
+    <MESSAGE value="Removed XML" />
+    <MESSAGE value="Remove default SoundDictionary, as it is moving to the config file. Changed all references to the sound dictionary to SavedDictionary." />
+    <MESSAGE value="Added beginnings of configUI" />
+    <MESSAGE value="Fix saved variable line" />
+    <MESSAGE value="Removed SoundDescriptions as a separate file" />
+    <MESSAGE value="Added more elements to configUI. Migrated descriptions back to config gfile" />
+    <MESSAGE value="Finished with configUI. Needs bug testing." />
+    <MESSAGE value="Finished all features. Removed core.lua, renamed config.lua to core.lua as it was easier to handle everything in one file." />
+    <MESSAGE value="Fix placement of description text." />
+    <MESSAGE value="Fix placement of description text. Removed unused function." />
+    <MESSAGE value="Changed default audio for raid leader back to party" />
+    <MESSAGE value="Changed sounds as other sounds were taken from another addon" />
+    <MESSAGE value="Remove print statement left over from debugging" />
+    <MESSAGE value="Make the message handler a local variable, and use the WoW API wipe to make sure it cleans it." />
+    <MESSAGE value="Fix a lua error when the user changes a message type to make a sound, then changes it back to disabled." />
+    <MESSAGE value="Updated original init message to direct user to how to change settings" />
+    <MESSAGE value="Add the pkgmeta to allow automatic packaging" />
+    <MESSAGE value="Fixed initial load to actually correctly initialize the settings menu." />
+    <MESSAGE value="Remove enable-nolib-creation line as it was not necessary." />
+    <MESSAGE value="Fix some typos in the descriptions" />
+    <MESSAGE value="Fix interface version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix interface version" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/wow-api.lua" />
+    <entry file="file://$PROJECT_DIR$/../WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/widgets/UIObject/ParentedObject/Region/VisibleRegion/Frame.lua" />
+    <entry file="file://Z:/Games/WoWAddon/WoW API SDK/BlizzardInterfaceCode/Interface/FrameXML/UIPanelTemplates.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24599">
+          <caret line="1447" column="73" selection-start-line="1447" selection-start-column="73" selection-end-line="1447" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConfigUI.xml" />
+    <entry file="file://$PROJECT_DIR$/SoundDescriptions.lua" />
+    <entry file="file://Z:/Games/WoWAddon/WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/widgets/UIObject/ParentedObject/Region/VisibleRegion/Frame.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5542">
+          <caret line="326" column="16" selection-start-line="326" selection-start-column="16" selection-end-line="326" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/Games/WoWAddon/WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/widgets/UIObject/ParentedObject/Region.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/Games/WoWAddon/WoW API SDK/BlizzardInterfaceCode/Interface/FrameXML/EasyMenu.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/Games/WoWAddon/WoW API SDK/BlizzardInterfaceCode/Interface/FrameXML/UIDropDownMenu.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/Games/WoWAddon/WoW API SDK/IntelliJ-IDEA-Lua-IDE-WoW-API/wow-api.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214438">
+          <caret line="12614" column="9" selection-start-line="12614" selection-start-column="9" selection-end-line="12614" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/Games/WoWAddon/WoW API SDK/BlizzardInterfaceCode/Interface/GlueXML/GlueDropDownMenu.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9979">
+          <caret line="587" column="31" selection-start-line="587" selection-start-column="4" selection-end-line="587" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkgmeta.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatNotifications.toc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Lua</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2482679" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

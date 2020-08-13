@@ -317,6 +317,16 @@ local function saveButton_OnClick()
     end
     reloadSoundEvents();
 end
+local function devButton_OnClick()
+    local ChatNotifications_devTestHandler = {};
+    ChatNotifications_devTestHandler = CreateFrame("Frame");
+    local i = 1;
+    for msgType, desc in pairs(CN_soundDescriptions) do
+        ChatNotifications_devTestHandler:RegisterEvent(msgType);
+        print("Chat Notifications: Dev test ", msgType, " ", i);
+        i = i + 1;
+    end
+end
 
 --Add panel features
 --Save Button
@@ -377,7 +387,7 @@ configUI.panel.NPCDropDownButton.Text:SetPoint("TOP", configUI.panel, "TOPLEFT",
 configUI.panel.selected = CreateFrame("Frame", "CN_Config_SelectedParent", configUI.panel);
 configUI.panel.selected.Text = CreateFrame("Button", "CN_Config_selectedText", configUI.panel);
 configUI.panel.selected.Text:SetPoint("BOTTOM", configUI.panel.normalDropDownButton, "BOTTOM", 90, -40);
-configUI.panel.selected.Text:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background", tile = true, tileSize = 16, insets = {left = 0, right = 0, top = 0, bottom = 0},})
+--configUI.panel.selected.Text:SetBackdrop({bgFile = "Interface/Tooltips/UI-Tooltip-Background", tile = true, tileSize = 16, insets = {left = 0, right = 0, top = 0, bottom = 0},})
 configUI.panel.selected.Text:SetSize(280,25);
 configUI.panel.selected.Text:SetText("CHAT_MSG_PARTY");
 configUI.panel.selected.Text:SetNormalFontObject("GameFontNormal");
@@ -405,3 +415,13 @@ configUI.panel.selected.previewButton:SetText("Preview Sound");
 configUI.panel.selected.previewButton:SetNormalFontObject("GameFontNormal");
 configUI.panel.selected.previewButton:SetHighlightFontObject("GameFontHighlight");
 configUI.panel.selected.previewButton:SetScript("OnClick", previewSound_OnClick)
+
+--[[--dev Button
+configUI.panel.saveButton = CreateFrame("Button", "CN_Config_SaveButton", configUI.panel, "GameMenuButtonTemplate");
+configUI.panel.saveButton:SetPoint("CENTER", configUI.panel, "CENTER", 0, 100);
+configUI.panel.saveButton:SetSize(70,20);
+configUI.panel.saveButton:SetText("Dev Test");
+configUI.panel.saveButton:SetNormalFontObject("GameFontNormal");
+configUI.panel.saveButton:SetHighlightFontObject("GameFontHighlight");
+configUI.panel.saveButton:SetScript("OnClick", devButton_OnClick);
+--]]
