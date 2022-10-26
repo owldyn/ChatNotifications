@@ -1,7 +1,7 @@
-## Interface: 90002
+## Interface: 100000
 ## Title: ChatNotifications
 ## Notes: Plays sounds when you receive messages.
-## Version: 1.0.4
+## Version: 1.0.5
 ## Author: Owldyn
 ## DefaultState: Enabled
 ## SavedVariables: ChatNotificationsSavedDictionary

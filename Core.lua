@@ -345,7 +345,7 @@ configUI.panel.normalDropDownButton:SetPoint("TOP", configUI.panel, "TOPLEFT", 5
 configUI.panel.normalDropDownButton:SetSize(140,25);
 configUI.panel.normalDropDownButton.initialize = configUIDropDownOnClick.normal;
 --Normal Text
-configUI.panel.normalDropDownButton.Text = configUI.panel.normalDropDownButton:CreateFontString(configUI.panel.normalDropDownButton.Text, "OVERLAY", "GameFontNormal");
+configUI.panel.normalDropDownButton.Text = configUI.panel.normalDropDownButton:CreateFontString("Normal Chat", "OVERLAY", "GameFontNormal");
 configUI.panel.normalDropDownButton.Text:SetText("Normal Chat");
 configUI.panel.normalDropDownButton.Text:SetPoint("TOP", configUI.panel, "TOPLEFT", 50, -23);
 
@@ -356,7 +356,7 @@ configUI.panel.systemDropDownButton:SetPoint("TOP", configUI.panel, "TOPLEFT", 2
 configUI.panel.systemDropDownButton:SetSize(140,25);
 configUI.panel.systemDropDownButton.initialize = configUIDropDownOnClick.system;
 --System Text
-configUI.panel.systemDropDownButton.Text = configUI.panel.systemDropDownButton:CreateFontString(configUI.panel.systemDropDownButton.Text, "OVERLAY", "GameFontNormal");
+configUI.panel.systemDropDownButton.Text = configUI.panel.systemDropDownButton:CreateFontString("System Messges", "OVERLAY", "GameFontNormal");
 configUI.panel.systemDropDownButton.Text:SetText("System Messages");
 configUI.panel.systemDropDownButton.Text:SetPoint("TOP", configUI.panel, "TOPLEFT", 215, -23); -- +6, +8
 
@@ -367,7 +367,7 @@ configUI.panel.socialDropDownButton:SetPoint("TOP", configUI.panel, "TOPLEFT", 3
 configUI.panel.socialDropDownButton:SetSize(140,25);
 configUI.panel.socialDropDownButton.initialize = configUIDropDownOnClick.social;
 --Social Text
-configUI.panel.socialDropDownButton.Text = configUI.panel.socialDropDownButton:CreateFontString(configUI.panel.socialDropDownButton.Text, "OVERLAY", "GameFontNormal");
+configUI.panel.socialDropDownButton.Text = configUI.panel.socialDropDownButton:CreateFontString("Social", "OVERLAY", "GameFontNormal");
 configUI.panel.socialDropDownButton.Text:SetText("Social");
 configUI.panel.socialDropDownButton.Text:SetPoint("TOP", configUI.panel, "TOPLEFT", 330, -23); -- -29, =8
 
@@ -378,7 +378,7 @@ configUI.panel.NPCDropDownButton:SetPoint("TOP", configUI.panel, "TOPLEFT", 509,
 configUI.panel.NPCDropDownButton:SetSize(140,25);
 configUI.panel.NPCDropDownButton.initialize = configUIDropDownOnClick.npc;
 --NPC Text
-configUI.panel.NPCDropDownButton.Text = configUI.panel.NPCDropDownButton:CreateFontString(configUI.panel.NPCDropDownButton.Text, "OVERLAY", "GameFontNormal");
+configUI.panel.NPCDropDownButton.Text = configUI.panel.NPCDropDownButton:CreateFontString("NPC Chatter", "OVERLAY", "GameFontNormal");
 configUI.panel.NPCDropDownButton.Text:SetText("NPC Chatter");
 configUI.panel.NPCDropDownButton.Text:SetPoint("TOP", configUI.panel, "TOPLEFT", 500, -23); -- -9, +8
 
@@ -393,7 +393,7 @@ configUI.panel.selected.Text:SetText("CHAT_MSG_PARTY");
 configUI.panel.selected.Text:SetNormalFontObject("GameFontNormal");
 
 --Description of what selected option does
-configUI.panel.selected.description = configUI.panel.selected:CreateFontString(configUI.panel.selected.description, "OVERLAY","GameFontNormal");
+configUI.panel.selected.description = configUI.panel.selected:CreateFontString("description", "OVERLAY","GameFontNormal");
 configUI.panel.selected.description:SetPoint("TOP", configUI.panel.saveButton, "TOP", 0, 50);
 configUI.panel.selected.description:SetSize(600,50);
 configUI.panel.selected.description:SetText(getDescriptionText(configUI.panel.selected.Text:GetText()))
@@ -405,7 +405,7 @@ configUI.panel.selected.DropDownButton:SetPoint("CENTER", configUI.panel.selecte
 configUI.panel.selected.DropDownButton:SetSize(140,25);
 configUI.panel.selected.DropDownButton.initialize = configUIDropDownOnClick.setting;
 --Setting Text
-configUI.panel.selected.DropDownButton.Text = configUI.panel.selected.DropDownButton:CreateFontString(configUI.panel.selected.DropDownButton.Text, "OVERLAY", "GameFontNormal");
+configUI.panel.selected.DropDownButton.Text = configUI.panel.selected.DropDownButton:CreateFontString("Setting Text", "OVERLAY", "GameFontNormal");
 configUI.panel.selected.DropDownButton.Text:SetPoint("CENTER", configUI.panel.selected.DropDownButton, "CENTER", 0, 0);
 --Preview Sound button
 configUI.panel.selected.previewButton = CreateFrame("Button", "CN_Config_selectedPreviewButton", configUI.panel, "GameMenuButtonTemplate");
