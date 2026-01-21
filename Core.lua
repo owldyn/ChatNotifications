@@ -14,11 +14,11 @@ local CN_soundDescriptions = {
   "When a horde action is sent to chat in BGs, e.g. assaulting a graveyard or capture point, or picking up a flag.",
   ["CHAT_MSG_BG_SYSTEM_NEUTRAL"] =
   "When a Battleground-event message that are displayed in a faction-neutral color by default is sent",
-  ["CHAT_MSG_BN"] = "",                              --Not currently implemented in this addon
-  ["CHAT_MSG_BN_INLINE_TOAST_ALERT"] = "",           --Not currently implemented in this addon
-  ["CHAT_MSG_BN_INLINE_TOAST_BROADCAST"] = "",       --Not currently implemented in this addon
+  ["CHAT_MSG_BN"] = "",                               --Not currently implemented in this addon
+  ["CHAT_MSG_BN_INLINE_TOAST_ALERT"] = "",            --Not currently implemented in this addon
+  ["CHAT_MSG_BN_INLINE_TOAST_BROADCAST"] = "",        --Not currently implemented in this addon
   ["CHAT_MSG_BN_INLINE_TOAST_BROADCAST_INFORM"] = "", --Not currently implemented in this addon
-  ["CHAT_MSG_BN_INLINE_TOAST_CONVERSATION"] = "",    --Not currently implemented in this addon
+  ["CHAT_MSG_BN_INLINE_TOAST_CONVERSATION"] = "",     --Not currently implemented in this addon
   ["CHAT_MSG_BN_WHISPER"] = "When you receive a battle.net whisper",
   ["CHAT_MSG_BN_WHISPER_INFORM"] = "When you send a battle.net whisper",
   ["CHAT_MSG_BN_WHISPER_PLAYER_OFFLINE"] =
@@ -43,7 +43,7 @@ local CN_soundDescriptions = {
   ["CHAT_MSG_GUILD"] = "When a message is sent or received in Guild chat.",
   ["CHAT_MSG_GUILD_ACHIEVEMENT"] = "When a guild member completes an achievement",
   ["CHAT_MSG_GUILD_ITEM_LOOTED"] =
-  "When a guild member loots an epic or higher quality piece of gear (needs verification)",                                 --TODO needs verification
+  "When a guild member loots an epic or higher quality piece of gear (needs verification)", --TODO needs verification
   ["CHAT_MSG_IGNORED"] = "When you whisper a player that is ignoring you",
   ["CHAT_MSG_INSTANCE_CHAT"] =
   "When you receive a message in instance chat, such as when you're in a match-made dungeon or raid.",
@@ -62,8 +62,8 @@ local CN_soundDescriptions = {
   ["CHAT_MSG_PARTY"] = "When a message is sent or received in party chat.",
   ["CHAT_MSG_PARTY_LEADER"] = "When a message is sent or received in party chat by the party leader.",
   ["CHAT_MSG_PET_BATTLE_COMBAT_LOG"] = "", --Not currently implemented in this addon
-  ["CHAT_MSG_PET_BATTLE_INFO"] = "",      --Not currently implemented in this addon
-  ["CHAT_MSG_PET_INFO"] = "",             --Not currently implemented in this addon
+  ["CHAT_MSG_PET_BATTLE_INFO"] = "",       --Not currently implemented in this addon
+  ["CHAT_MSG_PET_INFO"] = "",              --Not currently implemented in this addon
   ["CHAT_MSG_RAID"] = "When a message is sent or received in raid chat.",
   ["CHAT_MSG_RAID_BOSS_EMOTE"] = "When a raid boss emotes.",
   ["CHAT_MSG_RAID_BOSS_WHISPER"] = "When a raid boss whispers you.",
@@ -129,8 +129,7 @@ if InterfaceOptions_AddCategory then
   InterfaceOptions_AddCategory(configUI.panel)
 else
   category, layout =
-      _G.Settings.RegisterCanvasLayoutCategory(configUI.panel, configUI.panel.name, configUI.panel.name)
-  category.ID = configUI.panel.name
+      _G.Settings.RegisterCanvasLayoutCategory(configUI.panel, configUI.panel.name)
   _G.Settings.RegisterAddOnCategory(category)
 end
 --Setup chat command to open configUI
@@ -371,15 +370,15 @@ configUI.eventHandler.events = {
         "Chat Notifications: I see this is the first time you've ran this addon. Loading default settings. You can type /chatnc to change them."
       )
       ChatNotificationsSavedDictionary = {
-        ["CHAT_MSG_PARTY"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",            --Party Members
-        ["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",     --Party Leader
-        ["CHAT_MSG_OFFICER"] = "Interface\\AddOns\\ChatNotifications\\guild.ogg",          --Guild Officer
-        ["CHAT_MSG_GUILD"] = "Interface\\AddOns\\ChatNotifications\\guild.ogg",            --Guild Chat
-        ["CHAT_MSG_WHISPER"] = "Interface\\AddOns\\ChatNotifications\\whisper.ogg",        --In Game Whispers
-        ["CHAT_MSG_BN_WHISPER"] = "Interface\\AddOns\\ChatNotifications\\whisper.ogg",     --Battle.net Whispers
-        ["CHAT_MSG_RAID"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",             --Raid Members
-        ["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",      --Raid Leader
-        ["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",    --Instance Chat
+        ["CHAT_MSG_PARTY"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",                --Party Members
+        ["CHAT_MSG_PARTY_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",         --Party Leader
+        ["CHAT_MSG_OFFICER"] = "Interface\\AddOns\\ChatNotifications\\guild.ogg",              --Guild Officer
+        ["CHAT_MSG_GUILD"] = "Interface\\AddOns\\ChatNotifications\\guild.ogg",                --Guild Chat
+        ["CHAT_MSG_WHISPER"] = "Interface\\AddOns\\ChatNotifications\\whisper.ogg",            --In Game Whispers
+        ["CHAT_MSG_BN_WHISPER"] = "Interface\\AddOns\\ChatNotifications\\whisper.ogg",         --Battle.net Whispers
+        ["CHAT_MSG_RAID"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",                 --Raid Members
+        ["CHAT_MSG_RAID_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",          --Raid Leader
+        ["CHAT_MSG_INSTANCE_CHAT"] = "Interface\\AddOns\\ChatNotifications\\party.ogg",        --Instance Chat
         ["CHAT_MSG_INSTANCE_CHAT_LEADER"] = "Interface\\AddOns\\ChatNotifications\\party.ogg", --Instance Leader
       }
       changeSettings(dropdownData.NormalMessages[1])
